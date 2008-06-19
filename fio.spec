@@ -1,5 +1,5 @@
 Name:		fio
-Version:	1.20
+Version:	1.21
 Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
@@ -24,7 +24,7 @@ one wants to simulate.
 %setup -q -n fio
 
 %build
-make %{?_smp_mflags}
+EXTFLAGS="$RPM_OPT_FLAGS" make V=1 %{?_smp_mflags}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -40,6 +40,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Thu Jun 19 2008 Eric Sandeen <sandeen@redhat.com> 1.21-1
+- New upstream version
+- Build verbosely and with RPM cflags
+
 * Fri Apr 25 2008 Eric Sandeen <sandeen@redhat.com> 1.20-1
 - New upstream version
 
