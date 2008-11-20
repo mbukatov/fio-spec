@@ -1,5 +1,5 @@
 Name:		fio
-Version:	1.22
+Version:	1.23
 Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
@@ -40,6 +40,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Thu Nov 20 2008 Eric Sandeen <sandeen@redhat.com> 1.23-1
+- New upstream version, several bugs fixed.
+
 * Mon Oct 13 2008 Eric Sandeen <sandeen@redhat.com> 1.22-1
 - New upstream version, several bugs fixed.
 
