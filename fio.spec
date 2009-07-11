@@ -1,5 +1,5 @@
 Name:		fio
-Version:	1.24
+Version:	1.31
 Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
@@ -21,7 +21,7 @@ The typical use of fio is to write a job file matching the io load
 one wants to simulate.
 
 %prep
-%setup -q -n fio
+%setup -q
 
 %build
 EXTFLAGS="$RPM_OPT_FLAGS" make V=1 %{?_smp_mflags}
@@ -40,6 +40,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Sat Jul 11 2009 Eric Sandeen <sandeen@redhat.com> 1.31-1
+- Much newer upstream version
+
 * Fri Mar 06 2009 Eric Sandeen <sandeen@redhat.com> 1.24-1
 - New upstream version
 
