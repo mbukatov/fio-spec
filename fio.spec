@@ -1,6 +1,6 @@
 Name:		fio
-Version:	1.31
-Release:	2%{?dist}
+Version:	1.32
+Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -40,6 +40,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Fri Jul 31 2009 Eric Sandeen <sandeen@redhat.com> 1.32-1
+- New upstream version
+
 * Fri Jul 24 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.31-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
 
