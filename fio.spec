@@ -1,12 +1,14 @@
 Name:		fio
 Version:	2.0.12.2
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
 License:	GPLv2
 URL:		http://git.kernel.dk/?p=fio.git;a=summary
 Source:		http://brick.kernel.dk/snaps/%{name}-%{version}.tar.bz2
+# backported upstream commit 4de98eb0e
+Patch0:		fio-2.0.12.2-no-arch-cpu-clock.patch
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -22,6 +24,7 @@ one wants to simulate.
 
 %prep
 %setup -q
+%patch0 -p1 -b .no-arch-cpu-clock
 
 %build
 EXTFLAGS="$RPM_OPT_FLAGS" make V=1 %{?_smp_mflags}
@@ -40,6 +43,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Tue Jan 01 2013 Dan Horák <dan[at]danny.cz> - 2.0.12.2-2
+- fix build on arches without ARCH_HAVE_CPU_CLOCK (arm, s390)
+
 * Fri Dec 21 2012 Eric Sandeen <sandeen@redhat.com> 2.0.12.2-1 
 - New upstream version
 
