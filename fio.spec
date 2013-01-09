@@ -1,6 +1,6 @@
 Name:		fio
-Version:	2.0.12.2
-Release:	2%{?dist}
+Version:	2.0.13
+Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -24,7 +24,6 @@ one wants to simulate.
 
 %prep
 %setup -q
-%patch0 -p1 -b .no-arch-cpu-clock
 
 %build
 EXTFLAGS="$RPM_OPT_FLAGS" make V=1 %{?_smp_mflags}
@@ -43,6 +42,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 
 %changelog
+* Wed Jan  9 2013 Peter Robinson <pbrobinson@fedoraproject.org> 2.0.13-1
+- New upstream 2.0.13 release
+
 * Tue Jan 01 2013 Dan Horák <dan[at]danny.cz> - 2.0.12.2-2
 - fix build on arches without ARCH_HAVE_CPU_CLOCK (arm, s390)
 
