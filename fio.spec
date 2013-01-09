@@ -6,7 +6,7 @@ Summary:	Multithreaded IO generation tool
 Group:		Applications/System
 License:	GPLv2
 URL:		http://git.kernel.dk/?p=fio.git;a=summary
-Source:		http://brick.kernel.dk/snaps/%{name}-%{version}.tar.bz2
+Source:		http://brick.kernel.dk/snaps/%{name}-%{version}.tar.gz
 # backported upstream commit 4de98eb0e
 Patch0:		fio-2.0.12.2-no-arch-cpu-clock.patch
 
