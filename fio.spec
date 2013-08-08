@@ -1,6 +1,6 @@
 Name:		fio
-Version:	2.1
-Release:	2%{?dist}
+Version:	2.1.2
+Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -36,10 +36,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc README REPORTING-BUGS COPYING HOWTO examples
+%dir %{_datadir}/%{name}
 %{_bindir}/*
 %{_mandir}/man1/*
+%{_datadir}/%{name}/*
 
 %changelog
+* Thu Aug 08 2013 Eric Sandeen <sandeen@redhat.com> 2.1.2-1 
+- New upstream version
+
 * Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
