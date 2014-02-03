@@ -1,12 +1,12 @@
 Name:		fio
-Version:	2.1.3
+Version:	2.1.5
 Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
 License:	GPLv2
 URL:		http://git.kernel.dk/?p=fio.git;a=summary
-Source:		http://brick.kernel.dk/snaps/%{name}-%{version}.tar.gz
+Source:		http://brick.kernel.dk/snaps/%{name}-%{version}.tar.bz2
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -42,6 +42,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Wed Feb 12 2014 Eric Sandeen <sandeen@redhat.com> 2.1.5-1 
+- New upstream version
+
 * Wed Sep 25 2013 Eric Sandeen <sandeen@redhat.com> 2.1.3-1 
 - New upstream version
 
