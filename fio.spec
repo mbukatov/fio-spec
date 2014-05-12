@@ -42,7 +42,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
-* Tue Man 13 2014 Eric Sandeen <sandeen@redhat.com> 2.1.9-1 
+* Tue Mon 13 2014 Eric Sandeen <sandeen@redhat.com> 2.1.9-1 
 - New upstream version
 
 * Mon Apr 14 2014 Eric Sandeen <sandeen@redhat.com> 2.1.8-1 
