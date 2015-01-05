@@ -1,5 +1,5 @@
 Name:		fio
-Version:	2.2.3
+Version:	2.2.4
 Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
@@ -42,7 +42,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
-* Fri Jan 02 2015 Eric Sandeen <sandeen@redhat.com> 2.2.3
+* Mon Jan 05 2015 Eric Sandeen <sandeen@redhat.com> 2.2.4-1
+- New upstream version
+
+* Fri Jan 02 2015 Eric Sandeen <sandeen@redhat.com> 2.2.3-1
 - New upstream version
 
 * Wed Nov 12 2014 Eric Sandeen <sandeen@redhat.com> 2.1.14-1
