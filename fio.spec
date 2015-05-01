@@ -1,5 +1,5 @@
 Name:		fio
-Version:	2.2.7
+Version:	2.2.8
 Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
@@ -43,6 +43,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Thu May 07 2015 Eric Sandeen <sandeen@redhat.com> 2.2.8-1
+- New upstream version
+
 * Wed Apr 15 2015 Eric Sandeen <sandeen@redhat.com> 2.2.7-1
 - New upstream version
 - Add librbd ioengine support
