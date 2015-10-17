@@ -1,0 +1,12 @@
+Index: fio-2.2.11/lib/libmtd_legacy.c
+===================================================================
+--- fio-2.2.11.orig/lib/libmtd_legacy.c
++++ fio-2.2.11/lib/libmtd_legacy.c
+@@ -30,6 +30,7 @@
+ #include <unistd.h>
+ #include <stdlib.h>
+ #include <errno.h>
++#include <stdint.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <sys/ioctl.h>
