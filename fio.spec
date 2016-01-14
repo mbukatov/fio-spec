@@ -8,6 +8,8 @@ License:	GPLv2
 URL:		http://git.kernel.dk/?p=fio.git;a=summary
 Source:		http://brick.kernel.dk/snaps/%{name}-%{version}.tar.bz2
 
+Patch0:		fio-2.3-stdint.patch
+
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:	libaio-devel
@@ -25,6 +27,8 @@ one wants to simulate.
 
 %prep
 %setup -q
+
+%patch0 -p1
 
 %build
 EXTFLAGS="$RPM_OPT_FLAGS" make V=1 %{?_smp_mflags}
