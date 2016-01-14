@@ -1,5 +1,5 @@
 Name:		fio
-Version:	2.2.13
+Version:	2.3
 Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
@@ -45,6 +45,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Thu Jan 14 2016 Eric Sandeen <sandeen@redhat.com> 2.3-1
+- New upstream version
+
 * Mon Dec 21 2015 Eric Sandeen <sandeen@redhat.com> 2.2.13-1
 - New upstream version
 - Add librdmacm-devel as build dependency (enable RDMA)
