@@ -31,6 +31,7 @@ one wants to simulate.
 %patch0 -p1
 
 %build
+./configure --disable-optimizations
 EXTFLAGS="$RPM_OPT_FLAGS" make V=1 %{?_smp_mflags}
 
 %install
