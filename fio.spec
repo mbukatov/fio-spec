@@ -1,5 +1,5 @@
 Name:		fio
-Version:	2.7
+Version:	2.8
 Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
@@ -50,13 +50,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Thu Mar 17 2016 Eric Sandeen <sandeen@redhat.com> 2.8-1
+- New upstream version
+
 * Fri Mar 11 2016 Eric Sandeen <sandeen@redhat.com> 2.7-1
 - New upstream version
 
 * Wed Feb 03 2016 Fedora Release Engineering <releng@fedoraproject.org> - 2.6-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
-* Thu Jan 27 2016 Eric Sandeen <sandeen@redhat.com> 2.6-1
+* Wed Jan 27 2016 Eric Sandeen <sandeen@redhat.com> 2.6-1
 - New upstream version
 
 * Thu Jan 14 2016 Eric Sandeen <sandeen@redhat.com> 2.3-1
@@ -70,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 - New upstream version
 - Add zlib-devel as build dependency
 
-* Thu Sep 22 2015 Eric Sandeen <sandeen@redhat.com> 2.2.10-1
+* Tue Sep 22 2015 Eric Sandeen <sandeen@redhat.com> 2.2.10-1
 - New upstream version
 
 * Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.2.8-2
@@ -104,7 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 * Sat Aug 16 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.1.11-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
-* Wed Jul 17 2014 Eric Sandeen <sandeen@redhat.com> 2.1.11-1 
+* Tue Jul 15 2014 Eric Sandeen <sandeen@redhat.com> 2.1.11-1 
 - New upstream version
 
 * Mon Jun 16 2014 Eric Sandeen <sandeen@redhat.com> 2.1.10-1 
