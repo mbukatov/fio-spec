@@ -1,5 +1,5 @@
 Name:		fio
-Version:	2.9
+Version:	2.11
 Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
@@ -7,8 +7,6 @@ Group:		Applications/System
 License:	GPLv2
 URL:		http://git.kernel.dk/?p=fio.git;a=summary
 Source:		http://brick.kernel.dk/snaps/%{name}-%{version}.tar.bz2
-
-Patch0:		fio-2.3-stdint.patch
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -27,8 +25,6 @@ one wants to simulate.
 
 %prep
 %setup -q
-
-%patch0 -p1
 
 %build
 ./configure --disable-optimizations
@@ -50,6 +46,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Wed May 25 2016 Eric Sandeen <sandeen@redhat.com> 2.11-1
+- New upstream version
+
 * Fri Apr 29 2016 Eric Sandeen <sandeen@redhat.com> 2.9-1
 - New upstream version
 
