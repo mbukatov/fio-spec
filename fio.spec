@@ -1,6 +1,6 @@
 Name:		fio
 Version:	2.15
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -46,6 +46,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Sat Nov 19 2016 Peter Robinson <pbrobinson@fedoraproject.org> 2.15-2
+- Rebuild (Power64)
+
 * Thu Oct 27 2016 Eric Sandeen <sandeen@redhat.com> 2.15-1
 - New upstream version
 
