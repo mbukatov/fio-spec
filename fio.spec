@@ -1,6 +1,6 @@
 Name:		fio
 Version:	2.19
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -14,6 +14,7 @@ BuildRequires:	libaio-devel
 BuildRequires:	librbd1-devel
 BuildRequires:	zlib-devel
 BuildRequires:	librdmacm-devel
+BuildRequires:	libpmem-devel
 
 %description
 fio is an I/O tool that will spawn a number of threads or processes doing
@@ -46,6 +47,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Wed Apr 05 2017 Eric Sandeen <sandeen@redhat.com> 2.19-2
+- Enable dev-dax engine
+
 * Wed Apr 05 2017 Eric Sandeen <sandeen@redhat.com> 2.19-1
 - New upstream version
 
