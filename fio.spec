@@ -14,7 +14,9 @@ BuildRequires:	libaio-devel
 BuildRequires:	librbd1-devel
 BuildRequires:	zlib-devel
 BuildRequires:	librdmacm-devel
+%ifarch x86_64
 BuildRequires:	libpmem-devel
+%endif
 
 %description
 fio is an I/O tool that will spawn a number of threads or processes doing
@@ -48,7 +50,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Wed Apr 05 2017 Eric Sandeen <sandeen@redhat.com> 2.19-2
-- Enable dev-dax engine
+- Enable dev-dax engine on x86_64
 
 * Wed Apr 05 2017 Eric Sandeen <sandeen@redhat.com> 2.19-1
 - New upstream version
