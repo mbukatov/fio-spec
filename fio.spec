@@ -1,6 +1,6 @@
 Name:		fio
-Version:	2.19
-Release:	2%{?dist}
+Version:	2.21
+Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -49,6 +49,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Fri Jun 16 2017 Eric Sandeen <sandeen@redhat.com> 2.21-1
+- New upstream version
+
 * Wed Apr 05 2017 Eric Sandeen <sandeen@redhat.com> 2.19-2
 - Enable dev-dax engine on x86_64
 
