@@ -1,6 +1,6 @@
 Name:		fio
 Version:	2.99
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -49,6 +49,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 2.99-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Mon Jul 10 2017 Eric Sandeen <sandeen@redhat.com> 2.99-1
 - New upstream version
 
