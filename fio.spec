@@ -1,6 +1,6 @@
 Name:		fio
 Version:	2.99
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -11,11 +11,13 @@ Source:		http://brick.kernel.dk/snaps/%{name}-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:	libaio-devel
-BuildRequires:	librbd1-devel
 BuildRequires:	zlib-devel
 BuildRequires:	librdmacm-devel
 %ifarch x86_64
 BuildRequires:	libpmem-devel
+%endif
+%ifnarch ppc64
+BuildRequires:	librbd1-devel
 %endif
 
 %description
@@ -49,6 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Mon Jul 10 2017 Eric Sandeen <sandeen@redhat.com> 2.99-3
+- Exclude ceph-related deps on ppc64
+
 * Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 2.99-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
