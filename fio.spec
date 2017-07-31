@@ -51,7 +51,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
-* Mon Jul 10 2017 Eric Sandeen <sandeen@redhat.com> 2.99-3
+* Mon Jul 31 2017 Eric Sandeen <sandeen@redhat.com> 2.99-3
 - Exclude ceph-related deps on ppc64
 
 * Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 2.99-2
