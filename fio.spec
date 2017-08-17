@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.0
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -45,12 +45,19 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc README REPORTING-BUGS COPYING HOWTO examples
+%doc MORAL-LICENSE GFIO-TODO SERVER-TODO STEADYSTATE-TODO
 %dir %{_datadir}/%{name}
 %{_bindir}/*
 %{_mandir}/man1/*
 %{_datadir}/%{name}/*
 
 %changelog
+* Thu Aug 17 2017 Eric Sandeen <sandeen@redhat.com> 3.0-2
+- Include more files as doc (#1482372)
+
+* Wed Aug 16 2017 Eric Sandeen <sandeen@redhat.com> 3.0-1
+- New upstream version
+
 * Mon Jul 31 2017 Eric Sandeen <sandeen@redhat.com> 2.99-3
 - Exclude ceph-related deps on ppc64
 
