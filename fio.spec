@@ -1,6 +1,6 @@
 Name:		fio
-Version:	2.99
-Release:	3%{?dist}
+Version:	3.0
+Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
