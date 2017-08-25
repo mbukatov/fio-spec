@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.0
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -12,13 +12,13 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:	libaio-devel
 BuildRequires:	zlib-devel
+%ifnarch %{arm}
 BuildRequires:	librdmacm-devel
+%endif
 %ifarch x86_64
 BuildRequires:	libpmem-devel
 %endif
-%ifnarch ppc64
 BuildRequires:	librbd1-devel
-%endif
 
 %description
 fio is an I/O tool that will spawn a number of threads or processes doing
@@ -52,6 +52,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Fri Aug 25 2017 Adam Williamson <awilliam@redhat.com> - 3.0-3
+- Re-enable ceph deps on ppc64 (it's building again)
+- Disable RDMA support on 32-bit ARM (#1484155)
+
 * Thu Aug 17 2017 Eric Sandeen <sandeen@redhat.com> 3.0-2
 - Include more files as doc (#1482372)
 
