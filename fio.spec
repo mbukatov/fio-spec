@@ -1,6 +1,6 @@
 Name:		fio
-Version:	3.0
-Release:	3%{?dist}
+Version:	3.1
+Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -52,6 +52,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Tue Oct 18 2017 Eric Sandeen <sandeen@redhat.com> 3.1-1
+- New upstream version
+
 * Fri Aug 25 2017 Adam Williamson <awilliam@redhat.com> - 3.0-3
 - Re-enable ceph deps on ppc64 (it's building again)
 - Disable RDMA support on 32-bit ARM (#1484155)
