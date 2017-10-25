@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.1
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -17,7 +17,7 @@ BuildRequires:	libpmem-devel
 BuildRequires:	libpmemblk-devel
 %endif
 BuildRequires:	librbd1-devel
-%ifnarch %{arm} s390 s390x
+%ifnarch %{arm}
 BuildRequires:	numactl-devel
 BuildRequires:	librdmacm-devel
 %endif
@@ -54,6 +54,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Wed Oct 25 2017 Dan Horák <dan[at]danny.cz> 3.1-3
+- Add build deps for s390x
+
 * Tue Oct 24 2017 Eric Sandeen <sandeen@redhat.com> 3.1-2
 - Add new build deps for more features
 
