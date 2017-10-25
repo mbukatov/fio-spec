@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -12,13 +12,15 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:	libaio-devel
 BuildRequires:	zlib-devel
-%ifnarch %{arm}
-BuildRequires:	librdmacm-devel
-%endif
 %ifarch x86_64
 BuildRequires:	libpmem-devel
+BuildRequires:	libpmemblk-devel
 %endif
 BuildRequires:	librbd1-devel
+%ifnarch %{arm} s390 s390x
+BuildRequires:	numactl-devel
+BuildRequires:	librdmacm-devel
+%endif
 
 %description
 fio is an I/O tool that will spawn a number of threads or processes doing
@@ -52,7 +54,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
-* Tue Oct 18 2017 Eric Sandeen <sandeen@redhat.com> 3.1-1
+* Tue Oct 24 2017 Eric Sandeen <sandeen@redhat.com> 3.1-2
+- Add new build deps for more features
+
+* Wed Oct 18 2017 Eric Sandeen <sandeen@redhat.com> 3.1-1
 - New upstream version
 
 * Fri Aug 25 2017 Adam Williamson <awilliam@redhat.com> - 3.0-3
