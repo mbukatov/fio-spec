@@ -8,8 +8,6 @@ License:	GPLv2
 URL:		http://git.kernel.dk/?p=fio.git;a=summary
 Source:		http://brick.kernel.dk/snaps/%{name}-%{version}.tar.bz2
 
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-
 BuildRequires:	libaio-devel
 BuildRequires:	zlib-devel
 %ifarch x86_64
@@ -38,14 +36,9 @@ one wants to simulate.
 EXTFLAGS="$RPM_OPT_FLAGS" make V=1 %{?_smp_mflags}
 
 %install
-rm -rf $RPM_BUILD_ROOT
 make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files
-%defattr(-,root,root,-)
 %doc README REPORTING-BUGS COPYING HOWTO examples
 %doc MORAL-LICENSE GFIO-TODO SERVER-TODO STEADYSTATE-TODO
 %dir %{_datadir}/%{name}
