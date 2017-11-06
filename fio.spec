@@ -1,6 +1,6 @@
 Name:		fio
-Version:	3.1
-Release:	3%{?dist}
+Version:	3.2
+Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -47,6 +47,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Mon Nov 07 2017 Eric Sandeen <sandeen@redhat.com> 3.2-1
+- New upstream version
+
 * Wed Oct 25 2017 Dan Horák <dan[at]danny.cz> 3.1-3
 - Add build deps for s390x
 
