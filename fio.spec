@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.3
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -33,7 +33,7 @@ one wants to simulate.
 
 %build
 ./configure --disable-optimizations
-EXTFLAGS="$RPM_OPT_FLAGS" make V=1 %{?_smp_mflags}
+EXTFLAGS="$RPM_OPT_FLAGS" LDFLAGS="$RPM_LD_FLAGS" make V=1 %{?_smp_mflags}
 
 %install
 make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
@@ -47,6 +47,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Thu Feb  1 2018 Florian Weimer <fweimer@redhat.com> - 3.3-2
+- Build with linker flags from redhat-rpm-config
+
 * Wed Dec 27 2017 Eric Sandeen <sandeen@redhat.com> 3.3-1
 - New upstream version
 
