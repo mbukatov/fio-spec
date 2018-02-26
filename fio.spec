@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.4
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -8,6 +8,7 @@ License:	GPLv2
 URL:		http://git.kernel.dk/?p=fio.git;a=summary
 Source:		http://brick.kernel.dk/snaps/%{name}-%{version}.tar.bz2
 
+BuildRequires:	gcc
 BuildRequires:	libaio-devel
 BuildRequires:	zlib-devel
 %ifarch x86_64
@@ -47,6 +48,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Mon Feb 26 2018 Eric Sandeen <sandeen@redhat.com> 3.4-2
+- BuildRequires: gcc
+
 * Fri Feb 16 2018 Eric Sandeen <sandeen@redhat.com> 3.4-1
 - New upstream version
 
