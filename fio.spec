@@ -1,6 +1,6 @@
 Name:		fio
-Version:	3.4
-Release:	2%{?dist}
+Version:	3.6
+Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -48,6 +48,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Wed Apr 18 2018 Eric Sandeen <sandeen@redhat.com> 3.6-1
+- New upstream version
+
 * Mon Feb 26 2018 Eric Sandeen <sandeen@redhat.com> 3.4-2
 - BuildRequires: gcc
 
