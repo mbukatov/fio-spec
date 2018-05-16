@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.6
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -21,6 +21,8 @@ BuildRequires:	numactl-devel
 BuildRequires:	librdmacm-devel
 %endif
 
+Patch0: fio-python3.patch
+
 %description
 fio is an I/O tool that will spawn a number of threads or processes doing
 a particular type of io action as specified by the user.  fio takes a
@@ -31,6 +33,8 @@ one wants to simulate.
 
 %prep
 %setup -q
+
+%patch0 -p1
 
 %build
 ./configure --disable-optimizations
@@ -48,6 +52,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Wed May 16 2018 Eric Sandeen <sandeen@redhat.com> 3.6-2
+- Make all python scripts python3 compliant and explicit
+
 * Wed Apr 18 2018 Eric Sandeen <sandeen@redhat.com> 3.6-1
 - New upstream version
 
