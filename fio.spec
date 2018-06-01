@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.6
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -52,6 +52,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Fri Jun 01 2018 Eric Sandeen <sandeen@redhat.com> 3.6-3
+- Complete the conversion to python3
+
 * Wed May 16 2018 Eric Sandeen <sandeen@redhat.com> 3.6-2
 - Make all python scripts python3 compliant and explicit
 
