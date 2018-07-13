@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.7
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Multithreaded IO generation tool
 
 Group:		Applications/System
@@ -48,6 +48,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Fri Jul 13 2018 Fedora Release Engineering <releng@fedoraproject.org> - 3.7-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Fri Jun 01 2018 Eric Sandeen <sandeen@redhat.com> 3.7-1
 - New upstream version
 
