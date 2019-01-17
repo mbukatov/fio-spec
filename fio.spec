@@ -15,7 +15,11 @@ BuildRequires:	zlib-devel
 BuildRequires:	libpmem-devel
 BuildRequires:	libpmemblk-devel
 %endif
+
+%ifnarch %{arm} i686
 BuildRequires:	librbd1-devel
+%endif
+
 %ifnarch %{arm}
 BuildRequires:	numactl-devel
 BuildRequires:	librdmacm-devel
