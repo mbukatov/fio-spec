@@ -1,6 +1,6 @@
 Name:		fio
-Version:	3.12
-Release:	2%{?dist}
+Version:	3.13
+Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
 License:	GPLv2
@@ -51,6 +51,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Thu Feb 14 2019 Eric Sandeen <sandeen@redhat.com> 3.13-1
+- New upstream version
+
 * Thu Jan 31 2019 Fedora Release Engineering <releng@fedoraproject.org> - 3.12-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
