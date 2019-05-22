@@ -7,6 +7,8 @@ License:	GPLv2
 URL:		http://git.kernel.dk/?p=fio.git;a=summary
 Source:		http://brick.kernel.dk/snaps/%{name}-%{version}.tar.bz2
 
+Patch0:		fio-3.14-no-redef-gettid.patch
+
 BuildRequires:	gcc
 BuildRequires:	libaio-devel
 BuildRequires:	zlib-devel
@@ -34,6 +36,8 @@ one wants to simulate.
 
 %prep
 %setup -q
+
+%patch0 -p1
 
 %build
 ./configure --disable-optimizations
