@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.14
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Multithreaded IO generation tool
 
 License:	GPLv2
@@ -55,6 +55,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 3.14-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
 * Wed May 22 2019 Eric Sandeen <sandeen@redhat.com> 3.14-1
 - New upstream version
 
