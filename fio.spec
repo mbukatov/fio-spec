@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.14
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Multithreaded IO generation tool
 
 License:	GPLv2
@@ -37,6 +37,13 @@ one wants to simulate.
 %prep
 %setup -q
 
+pathfix.py -i %{__python3} -pn \
+ tools/fio_jsonplus_clat2csv \
+ tools/fiologparser.py \
+ tools/hist/*.py \
+ tools/plot/fio2gnuplot \
+ t/steadystate_tests.py
+
 %patch0 -p1
 
 %build
@@ -55,6 +62,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Wed May 22 2019 Eric Sandeen <sandeen@redhat.com> 3.14-3
+- Make all scripts explicitly call python3 (#1738819)
+
 * Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 3.14-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
