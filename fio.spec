@@ -62,7 +62,7 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
-* Wed May 22 2019 Eric Sandeen <sandeen@redhat.com> 3.14-3
+* Thu Aug 08 2019 Eric Sandeen <sandeen@redhat.com> 3.14-3
 - Make all scripts explicitly call python3 (#1738819)
 
 * Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 3.14-2
