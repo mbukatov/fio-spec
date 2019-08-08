@@ -12,6 +12,7 @@ Patch0:		fio-3.14-no-redef-gettid.patch
 BuildRequires:	gcc
 BuildRequires:	libaio-devel
 BuildRequires:	zlib-devel
+BuildRequires:	python3-devel
 %ifarch x86_64
 BuildRequires:	libpmem-devel
 BuildRequires:	libpmemblk-devel
