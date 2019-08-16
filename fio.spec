@@ -1,13 +1,11 @@
 Name:		fio
-Version:	3.14
-Release:	3%{?dist}
+Version:	3.15
+Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
 License:	GPLv2
 URL:		http://git.kernel.dk/?p=fio.git;a=summary
 Source:		http://brick.kernel.dk/snaps/%{name}-%{version}.tar.bz2
-
-Patch0:		fio-3.14-no-redef-gettid.patch
 
 BuildRequires:	gcc
 BuildRequires:	libaio-devel
@@ -45,8 +43,6 @@ pathfix.py -i %{__python3} -pn \
  tools/plot/fio2gnuplot \
  t/steadystate_tests.py
 
-%patch0 -p1
-
 %build
 ./configure --disable-optimizations
 EXTFLAGS="$RPM_OPT_FLAGS" LDFLAGS="$RPM_LD_FLAGS" make V=1 %{?_smp_mflags}
@@ -63,6 +59,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Fri Aug 16 2019 Eric Sandeen <sandeen@redhat.com> 3.15-1
+- New upstream version
+
 * Thu Aug 08 2019 Eric Sandeen <sandeen@redhat.com> 3.14-3
 - Make all scripts explicitly call python3 (#1738819)
 
