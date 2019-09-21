@@ -1,5 +1,5 @@
 Name:		fio
-Version:	3.15
+Version:	3.16
 Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
@@ -59,6 +59,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Sat Sep 21 2019 Eric Sandeen <sandeen@redhat.com> 3.16-1
+- New upstream version
+
 * Fri Aug 16 2019 Eric Sandeen <sandeen@redhat.com> 3.15-1
 - New upstream version
 
