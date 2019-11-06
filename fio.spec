@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.16
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Multithreaded IO generation tool
 
 License:	GPLv2
@@ -11,6 +11,7 @@ BuildRequires:	gcc
 BuildRequires:	libaio-devel
 BuildRequires:	zlib-devel
 BuildRequires:	python3-devel
+Buildrequires:  libnbd-devel
 %ifarch x86_64
 BuildRequires:	libpmem-devel
 BuildRequires:	libpmemblk-devel
@@ -44,7 +45,7 @@ pathfix.py -i %{__python3} -pn \
  t/steadystate_tests.py
 
 %build
-./configure --disable-optimizations
+./configure --disable-optimizations --enable-libnbd
 EXTFLAGS="$RPM_OPT_FLAGS" LDFLAGS="$RPM_LD_FLAGS" make V=1 %{?_smp_mflags}
 
 %install
@@ -59,6 +60,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Wed Nov 06 2019 Richard W.M. Jones <rjones@redhat.com> 3.16-2
+- Enable Network Block Device (libnbd) engine.
+
 * Sat Sep 21 2019 Eric Sandeen <sandeen@redhat.com> 3.16-1
 - New upstream version
 
