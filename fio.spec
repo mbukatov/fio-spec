@@ -1,6 +1,6 @@
 Name:		fio
-Version:	3.16
-Release:	2%{?dist}
+Version:	3.17
+Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
 License:	GPLv2
@@ -60,6 +60,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Mon Dec 16 2019 Eric Sandeen <sandeen@redhat.com> 3.17-1
+- New upstream version
+
 * Wed Nov 06 2019 Richard W.M. Jones <rjones@redhat.com> 3.16-2
 - Enable Network Block Device (libnbd) engine.
 
