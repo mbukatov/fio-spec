@@ -11,7 +11,7 @@ BuildRequires:	gcc
 BuildRequires:	libaio-devel
 BuildRequires:	zlib-devel
 BuildRequires:	python3-devel
-Buildrequires:  libnbd-devel
+BuildRequires:	libnbd-devel
 %ifarch x86_64
 BuildRequires:	libpmem-devel
 BuildRequires:	libpmemblk-devel
