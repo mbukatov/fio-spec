@@ -1,6 +1,6 @@
 Name:		fio
-Version:	3.17
-Release:	2%{?dist}
+Version:	3.18
+Release:	1%{?dist}
 Summary:	Multithreaded IO generation tool
 
 License:	GPLv2
@@ -26,6 +26,9 @@ BuildRequires:	numactl-devel
 BuildRequires:	librdmacm-devel
 %endif
 
+Patch0:		fix-io_uring-build.patch
+Patch1:		fix-fio-globals.patch
+
 %description
 fio is an I/O tool that will spawn a number of threads or processes doing
 a particular type of io action as specified by the user.  fio takes a
@@ -36,6 +39,8 @@ one wants to simulate.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 pathfix.py -i %{__python3} -pn \
  tools/fio_jsonplus_clat2csv \
@@ -60,6 +65,10 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Thu Feb 13 2020 Eric Sandeen <sandeen@redhat.com> 3.18-1
+- New upstream version
+- Fix gcc10 build
+
 * Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 3.17-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
