@@ -1,11 +1,13 @@
 Name:		fio
 Version:	3.19
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Multithreaded IO generation tool
 
 License:	GPLv2
 URL:		http://git.kernel.dk/?p=fio.git;a=summary
 Source:		http://brick.kernel.dk/snaps/%{name}-%{version}.tar.bz2
+
+Patch0:		fio-eliminate-extra-log-samples.patch
 
 BuildRequires:	gcc
 BuildRequires:	libaio-devel
@@ -36,6 +38,7 @@ one wants to simulate.
 
 %prep
 %setup -q
+%patch0 -p1
 
 pathfix.py -i %{__python3} -pn \
  tools/fio_jsonplus_clat2csv \
@@ -60,6 +63,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Thu Apr 16 2020 Eric Sandeen <sandeen@redhat.com> 3.19-2
+- Bugfix update: stat: eliminate extra log samples
+
 * Thu Mar 12 2020 Eric Sandeen <sandeen@redhat.com> 3.19-1
 - New upstream version
 

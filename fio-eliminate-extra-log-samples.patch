@@ -1,0 +1,52 @@
+From 640150c1b2c3cdbdd8baa5f1f3e7214a5c9a6533 Mon Sep 17 00:00:00 2001
+From: Vincent Fu <vincent.fu@wdc.com>
+Date: Tue, 31 Mar 2020 07:26:16 -0400
+Subject: [PATCH] stat: eliminate extra log samples
+
+b2a432bfbb6d inadvertently added extra log samples.
+
+$ ./fio-canonical/fio --name=test --time_based --runtime=10s --write_lat_log=fio-07-b2a432 --log_avg_msec=1000 --size=1G --rw=rw
+test: (g=0): rw=rw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.17-93-gb2a4
+Starting 1 process
+...
+$ cat fio-07-b2a432_clat.1.log
+1000, 5851, 0, 0, 0
+1000, 2551, 1, 0, 0
+1000, 5028, 1, 0, 0
+2000, 4175, 0, 0, 0
+2000, 3214, 1, 0, 0
+2000, 60619, 0, 0, 0
+...
+
+There should only be two lines at each timestamp (one for reads, one for
+writes), but the first two timestamps have three lines each.
+
+The cause is an inadvertent change in stat.c:add_log_sample() of
+__add_stat_to_log to _add_stat_to_log. Reverting to the two-underscore
+version resolves this issue.
+
+Fixes: https://github.com/axboe/fio/issues/947
+Fixes: b2a432bfbb6d ("Per-command priority: Priority logging and libaio/io_uring cmdprio_percentage")
+Signed-off-by: Vincent Fu <vincent.fu@wdc.com>
+---
+ stat.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/stat.c b/stat.c
+index d8c01d14..efa811d2 100644
+--- a/stat.c
++++ b/stat.c
+@@ -2749,7 +2749,7 @@ static unsigned long add_log_sample(struct thread_data *td,
+ 			return diff;
+ 	}
+ 
+-	_add_stat_to_log(iolog, elapsed, td->o.log_max != 0, priority_bit);
++	__add_stat_to_log(iolog, ddir, elapsed, td->o.log_max != 0, priority_bit);
+ 
+ 	iolog->avg_last[ddir] = elapsed - (this_window - iolog->avg_msec);
+ 	return iolog->avg_msec;
+-- 
+2.17.1
+
+
