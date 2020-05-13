@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.14
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	Multithreaded IO generation tool
 
 License:	GPLv2
@@ -13,6 +13,8 @@ BuildRequires:	gcc
 BuildRequires:	libaio-devel
 BuildRequires:	zlib-devel
 BuildRequires:	python3-devel
+BuildRequires:	libcurl-devel
+BuildRequires:	openssl-devel
 %ifarch x86_64
 BuildRequires:	libpmem-devel
 BuildRequires:	libpmemblk-devel
@@ -63,6 +65,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Thu May 13 2020 Martin Bukatovič <mbukatov@redhat.com> 3.14-4
+- Extend BuildRequires so that fio http IO engine is enabled
+
 * Thu Aug 08 2019 Eric Sandeen <sandeen@redhat.com> 3.14-3
 - Make all scripts explicitly call python3 (#1738819)
 
