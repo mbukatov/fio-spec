@@ -1,6 +1,6 @@
 Name:		fio
 Version:	3.19
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Multithreaded IO generation tool
 
 License:	GPLv2
@@ -14,6 +14,8 @@ BuildRequires:	libaio-devel
 BuildRequires:	zlib-devel
 BuildRequires:	python3-devel
 BuildRequires:	libnbd-devel
+BuildRequires:	libcurl-devel
+BuildRequires:	openssl-devel
 %ifarch x86_64
 BuildRequires:	libpmem-devel
 BuildRequires:	libpmemblk-devel
@@ -63,6 +65,9 @@ make install prefix=%{_prefix} mandir=%{_mandir} DESTDIR=$RPM_BUILD_ROOT INSTALL
 %{_datadir}/%{name}/*
 
 %changelog
+* Fri May 15 2020 Martin Bukatovič <mbukatov@redhat.com> 3.19-3
+- Enable http engine.
+
 * Thu Apr 16 2020 Eric Sandeen <sandeen@redhat.com> 3.19-2
 - Bugfix update: stat: eliminate extra log samples
 
